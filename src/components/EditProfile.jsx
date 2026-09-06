@@ -13,6 +13,7 @@ const EditProfile = ({user}) => {
      const [age, setAge] = useState(user.age || "");
      const [gender, setGender] = useState(user.gender  || "");
      const [about, setAbout] = useState(user.about || "");
+  
      const [error, setError] = useState("");
      const dispatch = useDispatch();
      const [showToast, setShowToast] = useState(false);
@@ -37,7 +38,7 @@ const EditProfile = ({user}) => {
       }, 3000);
 
       } catch (err) {
-  console.log(err.response?.data); // 🔥 see real error
+  console.log(err.response?.data);
   setError(err.response?.data || err.message);
 }
     };
@@ -102,6 +103,8 @@ const EditProfile = ({user}) => {
   className="input"
   onChange={(e) => setAbout(e.target.value)} />
 </fieldset>
+
+
 
    </div>
    <p className="text-red-500">{error}</p>
